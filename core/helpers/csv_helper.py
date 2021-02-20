@@ -16,7 +16,9 @@ def output_csv_np(data, file_name):
 
 def output_predictions(file_name, predictions):
     with open(file_name, 'w') as f:
-        f.write("c1,c2,c3,c4,c5,c6,c7,c8,c9\n")
+        classes = [f'c-{i}' for i in range(len(predictions[0]))]
+        f.write(",".join(classes))
+        f.write("\n")
         for element in predictions:
             f.write(",".join(str(v) for v in list(element)))
             f.write("\n")
