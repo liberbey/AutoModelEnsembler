@@ -2,6 +2,10 @@
 
 This is an Automated Model Ensembling framework for classification tasks. With AutoModelEnsembler, you can create ensemble models with many different algorithms and and a meta model. In this initial version, only classification tasks and probability prediction for each class is supported. Also it should be noted that your data should contain only numbers.
 
+Here is an example workflow you can create with AutoModelEnsembler.
+
+![Framework Diagram](https://user-images.githubusercontent.com/37846781/108607311-a4c99c00-73d0-11eb-9184-9464bcecffe6.png)
+
 # How to run?
 
 1) Clone the repository and create a virtual environment.
