@@ -36,6 +36,6 @@ For the first version, only 15 classifiers are supported. If you like to use a d
 * Support for VotingClassifiers
 * Usage of multiprocessing for increasing the speed
 * Feature Selection
-* Support for the data with different types
+* Support for data with different types
 * Database connection
 * Hyperparameter optimization using GridSearchCV/optuna
