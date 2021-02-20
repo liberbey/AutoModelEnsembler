@@ -1,0 +1,76 @@
+{
+  "train_data" : "C:\\Users\\Admin\\PycharmProjects\\AutoModelEnsembler\\trainData.csv",
+  "test_data" : "C:\\Users\\Admin\\PycharmProjects\\AutoModelEnsembler\\testData.csv",
+  "target_column" : "target",
+  "num_classes" : 9,
+  "kfold": 2,
+  "random_state": 0,
+  "validation_size" : 0.1,
+  "first_layer" : [
+    {
+      "clf": "MultinomialNB",
+      "params" :
+      {
+      },
+      "eval" : false,
+      "eval_metric" : null
+    },
+    { 
+      "clf": "KNeighborsClassifier",
+      "params": 
+      {
+        "n_neighbors": 178, 
+        "weights": "uniform", 
+        "algorithm": "brute", 
+        "leaf_size": 47, 
+        "p": 2
+      },
+      "eval" : false,
+      "eval_metric" : null
+    }
+  ],
+  "construct_pca" : true,
+  "pca_config" :
+  {
+    "construct_all" : false,
+    "pca_result_num": 1,
+    "construction_list":
+    [
+      ["MultinomialNB", "KNeighborsClassifier"],
+      ["KNeighborsClassifier", "KNeighborsClassifier"]
+    ]
+  },
+  "construct_statistical_features" : true,
+  "feature_config":
+  {
+    "statistic_names" : ["MAX", "MIN", "MEAN", "STD"],
+    "pca_statistics" : true,
+    "pca_result_num" : 1
+  },
+  "output_firstlayer_results": true,
+  "meta_model":
+  {
+      "clf": "LGBMClassifier",
+      "params" :
+      {
+        "feature_fraction": 0.30000000000000004,
+        "bagging_fraction": 0.75,
+        "objective": "multiclass",
+        "metric": "multi_logloss",
+        "nthread": 8,
+        "num_boost_round": 950,
+        "is_unbalance": true,
+        "num_leaves": 28,
+        "max_depth": 10,
+        "lambda_l2": 3.0,
+        "lambda_l1": 3.5,
+        "min_child_weight": 3.0,
+        "min_child_samples": 405,
+        "learning_rate": 0.019617590003856294
+      },
+      "eval" : true,
+      "eval_metric" : "multi_logloss"
+  },
+  "output_file_name": "predictions.csv"
+
+}
